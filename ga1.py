@@ -3,7 +3,7 @@ import GA
 import matplotlib.pyplot as plt
 
 """
-The y=target is to maximize this equation ASAP:
+The y=target is to minimize this equation ASAP:
     y = w1x1+w2x2+w3x3+w4x4+w5x5+6wx6
     where (x1,x2,x3,x4,x5,x6)=(4,-2,3.5,5,-11,-4.7)
     What are the best values for the 6 weights w1 to w6?
@@ -27,10 +27,10 @@ num_parents_mating = 4
 # Defining the population size.
 pop_size = (sol_per_pop,num_weights) # The population will have sol_per_pop chromosome where each chromosome has num_weights genes.
 #Creating the initial population.
-new_population = numpy.random.uniform(low=-4.0, high=4.0, size=pop_size)
+new_population = numpy.random.uniform(low=-1.0, high=1.0, size=pop_size)
 print(new_population)
 
-num_generations = 500
+num_generations = 100
 best=[]
 x=[]
 y=[]
@@ -57,6 +57,8 @@ for generation in range(num_generations):
     print "Best result : " + str(best[generation])
 
     x.append(generation)
+    print "new population" 
+    print str(new_population) 
 # Getting the best solution after iterating finishing all generations.
 #At first, the fitness is calculated for each solution in the final generation.
 fitness = GA.cal_pop_fitness(equation_inputs, new_population)
