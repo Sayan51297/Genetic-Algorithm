@@ -1,9 +1,15 @@
 import numpy
 
+ult_fitness = -200.0
+sol=8
+
 def cal_pop_fitness(equation_inputs, pop):
     # Calculating the fitness value of each solution in the current population.
     # The fitness function caulcuates the sum of products between each input and its corresponding weight.
     fitness = numpy.sum(pop*equation_inputs, axis=1)
+    for i in range(sol) :
+        if fitness[i] < ult_fitness :
+            fitness[i] = fitness[i] - ult_fitness
     print "fitness values" 
     print str(fitness)
     return fitness
