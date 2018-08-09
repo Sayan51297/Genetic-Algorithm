@@ -27,10 +27,10 @@ num_parents_mating = 4
 # Defining the population size.
 pop_size = (sol_per_pop,num_weights) # The population will have sol_per_pop chromosome where each chromosome has num_weights genes.
 #Creating the initial population.
-new_population = numpy.random.uniform(low=-1.0, high=1.0, size=pop_size)
+new_population = numpy.random.uniform(low=-4.0, high=4.0, size=pop_size)
 print(new_population)
 
-num_generations = 100
+num_generations = 200
 best=[]
 x=[]
 y=[]
@@ -57,8 +57,8 @@ for generation in range(num_generations):
     print "Best result : " + str(best[generation])
 
     x.append(generation)
-    print "new population" 
-    print str(new_population) 
+    #print "new population" 
+    #print str(new_population) 
 # Getting the best solution after iterating finishing all generations.
 #At first, the fitness is calculated for each solution in the final generation.
 fitness = GA.cal_pop_fitness(equation_inputs, new_population)
